@@ -41,15 +41,15 @@ num. pulsaciones = (210 - edad)/10 */
 
 //Comparacion con entero
 let generoEnt = parseInt(prompt('Ingrese su genero 0 femenino, 1 masculino'));
-let edadPersona = parseInt(prompt('¿Cuál es su edad'));
-let numPulsaciones;
+let edadPersonaent = parseInt(prompt('¿Cuál es su edad'));
+let numPulsacionesent;
 
 if( generoEnt == 0){
-    numPulsaciones = parseFloat((220 - edadPersona)/10);
-    console.log(`Su genero es ${generoEnt} y sus pulsaciones son ${numPulsaciones}`);
+    numPulsacionesent = parseFloat((220 - edadPersonaent)/10);
+    console.log(`Su genero es ${generoEnt} femenino y sus pulsaciones son ${numPulsacionesent}`);
 }else if(generoEnt == 1){
-    numPulsaciones = parseFloat((210 -edadPersona)/10);
-    console.log(`Su genero es ${generoEnt} y sus pulsaciones son ${numPulsaciones}`);
+    numPulsacionesent = parseFloat((210 -edadPersonaent)/10);
+    console.log(`Su genero es ${generoEnt} masculino y sus pulsaciones son ${numPulsacionesent}`);
 }
 
 
@@ -83,6 +83,9 @@ if(monto < 50000) {
     interes = parseFloat((monto*0.02));
     cuotaTotal = parseFloat(monto + interes);
     console.log(`Se aplico un 2% de interes que son ${interes}, la cuota total a pagar es ${cuotaTotal} `);
+}else if(monto == 50000)
+{
+    console.log('No hay nada por aplicar');
 }
 
 /* 5) En una escuela la colegiatura de los alumnos se determina según el numero de
@@ -125,7 +128,7 @@ if( ingresoComprador < 8000){
     enganche = parseFloat(costoCasa* 0.15);
     pagoAnual = parseFloat(costoCasa-enganche)/(12*10);
     console.log(`El costo Total de la casa es de $ ${costoCasa} su enganche es de $ ${enganche}, el pago anual será de $ ${pagoAnual} `);
-}else if(ingresoComprador > 8000){
+}else if(ingresoComprador >= 8000){
     enganche = parseFloat(costoCasa* 0.30);
     pagoAnual = parseFloat(costoCasa-enganche)/(12*7);
     console.log(`El costo Total de la casa es de $ ${costoCasa} su enganche es de $ ${enganche}, el pago anual será de $ ${pagoAnual} `);
@@ -166,22 +169,22 @@ se compran de cinco a 10 y de $200 si se compran mas de 10.
 Obtener la cantidad de dinero que una persona tiene que pagar por cada una de
 las llantas que compra y la que tiene que pagar por el total de la compra. */
 
-// let numLlantasponch = parseInt(prompt('¿Cuántas llantas de la marca "Ponchadas compró"?'));
+let numLlantasponch = parseInt(prompt('¿Cuántas llantas de la marca "Ponchadas compró"?'));
 
 if(numLlantasponch < 5){
     let costoLlantaponch=300;
     totalLlantasponch = numLlantasponch  * costoLlantaponch;
-    console.log(`Usted compró ${numLlantasponch} cada una le cuesta ${costoLlantaponch}, el total a pagar es$ ${totalLlantasponch}`);
+    console.log(`Usted compró ${numLlantasponch} cada una le cuesta $ ${costoLlantaponch} llantas, el total a pagar es$ ${totalLlantasponch}`);
 }else if(numLlantasponch >= 5  && numLlantasponch <= 10)
 {
     let costoLlantaponch=250;
     totalLlantasponch = numLlantasponch  * costoLlantaponch;
-    console.log(`Usted compró ${numLlantasponch} cada una le cuesta ${costoLlantaponch}, el total a pagar es$ ${totalLlantasponch}`);
+    console.log(`Usted compró ${numLlantasponch} cada una le cuesta $ ${costoLlantaponch} llantas, el total a pagar es$ ${totalLlantasponch}`);
     
 }else if(numLlantasponch >10){
     let costoLlantaponch=200;
     totalLlantasponch = numLlantasponch  * costoLlantaponch;
-    console.log(`Usted compró ${numLlantasponch} cada una le cuesta ${costoLlantaponch}, el total a pagar es$ ${totalLlantasponch}`);
+    console.log(`Usted compró ${numLlantasponch} cada una le cuesta $ ${costoLlantaponch} llantas, el total a pagar es$ ${totalLlantasponch}`);
 }
 
 
@@ -240,14 +243,15 @@ console.log(`num medio ${medio}`);
 /* 11) Ayudar a un trabajador a saber cuál será su sueldo semanal, se sabe que si trabaja 40 horas o menos, se le pagará $20 por hora, pero si trabaja más de 40 horas entonces las horas extras se le pagarán a $25 por hora. (Es necesario pedir las horas trabajadas al usuario) */
 
 let horasTrabajadas = parseInt(prompt('¿Cuántas horas trabajó esta semana?'));
-let sueldoSemanal, sueldoHorasextras;
+let sueldoSemanal, horasExtras,sueldoSemanaltotal;
 if(horasTrabajadas <= 40){
     sueldoSemanal =  parseInt((horasTrabajadas * 20));
     console.log(`Usted trabajó ${horasTrabajadas} su sueldo semanal es de  ${sueldoSemanal}`);
 }else if(horasTrabajadas >  40){
-    sueldoHorasextras = parseInt((horasTrabajadas - 40));
-    sueldoSemanal =  parseInt((horasTrabajadas - sueldoHorasextras)*20);
-    console.log(`Usted trabajó ${horasTrabajadas} y el sueldo de esta semana es de ${sueldoSemanal}`);
+    sueldoSemanal =  parseFloat((horasTrabajadas * 20));
+    horasExtras = parseFloat((horasTrabajadas - 40));
+    sueldoSemanaltotal =  parseFloat((sueldoSemanal) + (horasExtras*25));
+    console.log(`Usted trabajó ${horasTrabajadas} y el sueldo de esta semana es de ${sueldoSemanaltotal}`);
 }
 
 /* 12) Una tienda de helado ofrece un descuento por compra a sus clientes con membresía dependiendo de su tipo, sólo existen tres tipos de membresía, tipo A, tipo B y tipo C. Los descuentos son los siguientes:
